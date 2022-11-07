@@ -18,9 +18,9 @@ const Banner = () => {
               ALWAYS BE <br /> ORIGINAL
             </h1>
             <p className="mb-5 mt-5">
-              We Can Offer you complete range of Original
-              <br /> and Vendor Spare parts for Motorcyles BAJAJ Pulsar, <br />
-              Boxer, Avenger, Discover all Models
+              We Offer you best photography and also video of Original
+              <br /> real stick view on your , <br />
+              wedding, hangout and your event.
             </p>
             <button className="btn btn-bg-green-100 lg:btn-lg">
               CONTACT US
