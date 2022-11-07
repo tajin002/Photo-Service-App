@@ -36,10 +36,10 @@ const Header = () => {
             </li>
             <li className="flex">
               <Link
-                to="/"
+                to="/services"
                 className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
               >
-                Link
+                 Services
               </Link>
             </li>
             <li className="flex">
