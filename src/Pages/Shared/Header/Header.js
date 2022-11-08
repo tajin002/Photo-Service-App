@@ -37,7 +37,7 @@ const Header = () => {
             <li className="flex">
               <Link
                 to="/services"
-                className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
+                className="flex items-center px-4 -mb-1 text-xl font-semibold text-teal-400"
               >
                  Services
               </Link>
