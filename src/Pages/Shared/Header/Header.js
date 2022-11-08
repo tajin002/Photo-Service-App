@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthContext";
 import { FaList, FaUser } from "react-icons/fa";
-import logo from '../../../assests/logo/logo.png'
+import logo from "../../../assests/logo/logo.png";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-
 
   const handleLogOut = () => {
     logOut()
@@ -39,49 +38,63 @@ const Header = () => {
                 to="/services"
                 className="flex items-center px-4 -mb-1 text-xl font-semibold text-teal-400"
               >
-                 Services
+                Services
               </Link>
             </li>
-            <li className="flex">
-              <Link
-                to="/"
-                className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
-              >
-                Link
-              </Link>
-            </li>
-            <li className="flex">
-              <Link
-                to="/"
-                className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
-              >
-                Link
-              </Link>
-            </li>
+
+            {user?.uid ? (
+              <div className="flex">
+                <li className="flex">
+                  <Link
+                    to="/"
+                    className="flex items-center px-4 -mb-1 text-xl font-semibold text-teal-400"
+                  >
+                    My Reviews
+                  </Link>
+                </li>
+
+                <li className="flex">
+                  <Link
+                    to="/"
+                    className="flex items-center px-4 -mb-1 text-xl font-semibold text-teal-400"
+                  >
+                    Add Product
+                  </Link>
+                </li>
+              </div>
+            ) : (
+              <p></p>
+            )}
           </ul>
 
           <div className="items-center flex-shrink-0 hidden lg:flex">
+            {user?.photoURL ? (
+              <img
+                title={user?.displayName}
+                className="rounded-full h-16 mr-8"
+                src={user?.photoURL}
+                alt=""
+              />
+            ) : (
+              <FaUser title="user name" className="mr-8 h-16 w-8" />
+            )}
 
-              {
-                user?.photoURL ? 
-                <img title={user?.displayName} className="rounded-full h-16 mr-8" src={user?.photoURL} alt="" />
-                :
-                <FaUser title="user name" className="mr-8 h-16 w-8" />
-              }
-
-              {
-                user?.uid ? 
-                <button onClick={handleLogOut} className="self-center px-8 py-3 font-semibold rounded bg-teal-400 text-gray-900">
-                Sign out
-              </button> 
-              :
+            {user?.uid ? (
+              <div>
+                <button
+                  onClick={handleLogOut}
+                  className="self-center px-8 py-3 font-semibold rounded bg-teal-400 text-gray-900"
+                >
+                  Sign out
+                </button>
+              </div>
+            ) : (
               <Link to={"/login"}>
-              <button className="self-center px-8 py-3 font-semibold rounded bg-teal-400 text-gray-900">
-                Sign in
-              </button>
-            </Link>
-            }
-            
+                <button className="self-center px-8 py-3 font-semibold rounded bg-teal-400 text-gray-900">
+                  Sign in
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </header>
