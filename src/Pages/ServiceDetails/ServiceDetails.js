@@ -15,6 +15,7 @@ const ServiceDetails = () => {
     const form = event.target;
     const post = form.post.value;
     const userName = user?.displayName;
+    const email = user?.email;
     const img = user?.photoURL;
     console.log(post, name, img);
 
@@ -22,6 +23,7 @@ const ServiceDetails = () => {
       post,
       userName,
       name,
+      email,
       img,
     };
 

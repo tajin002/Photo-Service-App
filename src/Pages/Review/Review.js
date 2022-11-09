@@ -3,12 +3,12 @@ import Allreview from "./Allreview";
 
 const Review = () => {
   const [reviews, setReviews] = useState([]);
-
+  const [togle,setTogle] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/review")
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, []);
+  }, [togle]);
 
   return (
     <div>
@@ -28,7 +28,7 @@ const Review = () => {
       </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 mb-8">
           {
-            reviews.map(review => <Allreview key={review._id} review={review} />)
+            reviews.map(review => <Allreview key={review._id} review={review} setTogle={setTogle} />)
           }
         </div>
     </div>
