@@ -41,12 +41,11 @@ const Header = () => {
                 Services
               </Link>
             </li>
-
             {user?.uid ? (
               <div className="flex">
                 <li className="flex">
                   <Link
-                    to="/"
+                    to="/review"
                     className="flex items-center px-4 -mb-1 text-xl font-semibold text-teal-400"
                   >
                     My Reviews
@@ -55,7 +54,7 @@ const Header = () => {
 
                 <li className="flex">
                   <Link
-                    to="/"
+                    to="/product"
                     className="flex items-center px-4 -mb-1 text-xl font-semibold text-teal-400"
                   >
                     Add Product
@@ -65,6 +64,14 @@ const Header = () => {
             ) : (
               <p></p>
             )}
+            <li className="flex">
+              <Link
+                to="/blog"
+                className="flex items-center px-4 -mb-1 text-xl font-semibold text-teal-400"
+              >
+                Blog
+              </Link>
+            </li>
           </ul>
 
           <div className="items-center flex-shrink-0 hidden lg:flex">
