@@ -17,11 +17,8 @@ const ServiceITem = ({ item }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
-        <p>{detail.slice(0, 100) + "..."}</p>
+        <p>{detail.slice(0,100)+('....')}</p>
         <div className="card-actions justify-end">
-          <Link to={`/services/${_id}`}>
-            <button className="btn btn-primary">Details</button>
-          </Link>
         </div>
       </div>
     </div>
