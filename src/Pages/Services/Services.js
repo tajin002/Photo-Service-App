@@ -7,7 +7,7 @@ const Services = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://fullstack-app-server.vercel.app/services")
       .then((response) => response.json())
       .then((data) => {
         setServices(data)

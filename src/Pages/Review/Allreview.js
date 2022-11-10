@@ -13,7 +13,7 @@ const Allreview = ({ review , setTogle}) => {
     const toast = window.confirm('are you sure to delete')
 
       if(toast){
-        fetch(`http://localhost:5000/review/${id}`,{
+        fetch(`https://fullstack-app-server.vercel.app/review/${id}`,{
             method : 'DELETE'
         })
         .then(res=>res.json())
@@ -60,7 +60,7 @@ const Allreview = ({ review , setTogle}) => {
         <p>{post}</p>
       </div>
       <div className="flex justify-between">
-        <Link to={`/update/${_id}`}><p className="mt-2 btn">Edit</p></Link>
+        <Link to={`/review/${_id}`}><p className="mt-2 btn">Edit</p></Link>
         <p onClick={()=>handleDelete(_id)} className="mt-2 text-red-500 btn">Delete</p>
       </div>
     </div>

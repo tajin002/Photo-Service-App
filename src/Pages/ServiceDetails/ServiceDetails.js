@@ -43,7 +43,7 @@ const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review/${name}`)
+    fetch(`https://fullstack-app-server.vercel.app/review/${name}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

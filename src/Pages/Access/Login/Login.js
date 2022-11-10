@@ -4,12 +4,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthContext";
 
 const Login = () => {
-    
-    const {signIn , user , googleProviderLogin , gitProviderLogin} = useContext(AuthContext);
+
+    const {signIn, setLoading , user , googleProviderLogin , gitProviderLogin} = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate()
 
-    const form = location.state?.form?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,11 +22,20 @@ const Login = () => {
     .then(result=>{
         const user = result.user;
         console.log(user);
+        form.reset();
+       if(user.uid){
+        navigate(from, {replace: true});
+       }
+       else{
+        alert('please login')
+       }
+
     })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        setLoading(false)
       });
   };
 

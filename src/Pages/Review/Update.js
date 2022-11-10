@@ -1,21 +1,22 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData , useParams } from "react-router-dom";
 
 const Update = () => {
-  const {post} = useLoaderData();
+  const {id} = useParams();
 
-  const handleUpdate = (event , id) =>{
+  const handleUpdate = (event) =>{
         event.preventDefault();
         const form = event.target;
         const update = form.update.value;
         console.log(update)
 
-      fetch(`http://localhost:5000/review/${id}` , {
-        method : 'PUT',
+      fetch(`https://fullstack-app-server.vercel.app/review/${id}` , {
+        method : 'PATCH',
         headers: {
           'Content-Type': 'application/json'
       },
-      body:JSON.stringify({})
+      body:JSON.stringify({post: update})
+
     })
     .then(res=>res.json())
      .then(data => console.log(data))

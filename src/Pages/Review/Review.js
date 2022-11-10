@@ -5,7 +5,7 @@ const Review = () => {
   const [reviews, setReviews] = useState([]);
   const [togle,setTogle] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://fullstack-app-server.vercel.app/review")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [togle]);

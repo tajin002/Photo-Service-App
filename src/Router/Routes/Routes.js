@@ -23,28 +23,32 @@ export const router =createBrowserRouter([
             },
             {
                 path:"/home",
-                loader: () => fetch('http://localhost:5000//home'),
+                loader: () => fetch('https://fullstack-app-server.vercel.app/home'),
                 element: <Home/>
             },
             {
                 path: '/services',
-                element : <PrivateRouter><Services/></PrivateRouter>
+                element : <Services/>
             },
             {
                 path: '/services/:id',
                 element : <ServiceDetails />,
-                loader : ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader : ({params})=> fetch(`https://fullstack-app-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/review',
                 element: <PrivateRouter><Review/></PrivateRouter>
             },
 
+
             {
-                path : '/update/:id',
+                path : '/review/:id',
                 element: <Update />,
-                loader : ({params})=> fetch(`http://localhost:5000/review/${params.id}`)
+                loader : ({params})=> {
+                    fetch(`https://fullstack-app-server.vercel.app/review/${params.id}`,)
+                }
             },
+
             {
                 path: '/product',
                 element: <PrivateRouter><Product/></PrivateRouter>

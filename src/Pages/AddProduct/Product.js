@@ -18,7 +18,7 @@ const Product = () => {
         }
 
 
-        fetch("http://localhost:5000/home", {
+        fetch("https://fullstack-app-server.vercel.app/home", {
             method: "POST",
             headers:{
                 'content-type': "application/json"

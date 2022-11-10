@@ -6,7 +6,7 @@ import ServiceITem from "./ServiceITem";
 const ServicesItem = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/home")
+    fetch("https://fullstack-app-server.vercel.app/home")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
