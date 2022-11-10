@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+
+
 const Allreview = ({ review , setTogle}) => {
 
-  // const {user} = useContext(AuthContext);
+
   const [displayRev, setDisplayRev] = useState([]);
 
   const {_id, img, name, userName, post } = review;
@@ -10,9 +13,9 @@ const Allreview = ({ review , setTogle}) => {
 
 
   const handleDelete = id => {
-    const toast = window.confirm('are you sure to delete')
+    const proceed = window.confirm('are you sure to delete')
 
-      if(toast){
+      if(proceed){
         fetch(`https://fullstack-app-server.vercel.app/review/${id}`,{
             method : 'DELETE'
         })
@@ -20,7 +23,7 @@ const Allreview = ({ review , setTogle}) => {
         .then(data => {
           setTogle((togle)=>!togle)
            if(data.deletedCount > 0){
-            alert('deleted succesfully');
+            toast.success('Review deleted successfully');
             const remaining = displayRev.filter(rev => rev._id !== id)
             setDisplayRev(remaining)
            }

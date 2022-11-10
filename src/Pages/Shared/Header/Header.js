@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthContext";
-import { FaList, FaUser } from "react-icons/fa";
+import {FaUser } from "react-icons/fa";
 import logo from "../../../assests/logo/logo.png";
 
 const Header = () => {
