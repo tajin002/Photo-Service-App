@@ -57,7 +57,7 @@ const Header = () => {
                     to="/product"
                     className="flex items-center px-4 -mb-1 text-xl font-semibold text-teal-400"
                   >
-                    Add Product
+                    Add Service
                   </Link>
                 </li>
               </div>

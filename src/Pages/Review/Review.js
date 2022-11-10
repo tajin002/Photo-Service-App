@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import useTitle from "../../hook/useTitle";
 import Allreview from "./Allreview";
 
 const Review = () => {
+  useTitle('My Reviews');
+
   const [reviews, setReviews] = useState([]);
   const [togle,setTogle] = useState(true);
   useEffect(() => {

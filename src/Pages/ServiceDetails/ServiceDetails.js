@@ -8,7 +8,7 @@ const ServiceDetails = () => {
   const { img, name, detail } = useLoaderData();
   const [reviews, setReviews] = useState([]);
   const [toogle, setToggle] = useState(true);
-  console.log(name);
+  // console.log(name);
 
   const handlePlaceOrder = (event) => {
     event.preventDefault();
@@ -17,7 +17,7 @@ const ServiceDetails = () => {
     const userName = user?.displayName;
     const email = user?.email;
     const img = user?.photoURL;
-    console.log(post, name, img);
+    // console.log(post, name, img);
 
     const comment = {
       post,
@@ -46,7 +46,7 @@ const ServiceDetails = () => {
     fetch(`https://fullstack-app-server.vercel.app/review/${name}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setReviews(data);
       });
   }, [name, toogle]);

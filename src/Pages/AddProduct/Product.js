@@ -1,7 +1,9 @@
 import React from "react";
 import toast from "react-hot-toast";
+import useTitle from "../../hook/useTitle";
 
 const Product = () => {
+  useTitle('Add Service')
 
     const handleAddProduct = event =>{
         event.preventDefault();
@@ -9,7 +11,7 @@ const Product = () => {
         const name = form.name.value;
          const image = form.image.value;
          const detail = form.detail.value;
-        console.log(name,image,detail);
+        // console.log(name,image,detail);
 
         const product = {
             name: name,

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import image from "../../assests/header/iimage4.jpg";
+import useTitle from "../../hook/useTitle";
 import ServiceItem from "./ServiceItem";
 
 const Services = () => {
+  useTitle('Service')
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 

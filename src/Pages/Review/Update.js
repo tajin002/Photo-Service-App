@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData , useParams } from "react-router-dom";
+import { Link, useLoaderData , useParams } from "react-router-dom";
 
 const Update = () => {
   const {id} = useParams();
@@ -8,7 +8,7 @@ const Update = () => {
         event.preventDefault();
         const form = event.target;
         const update = form.update.value;
-        console.log(update)
+        // console.log(update)
 
       fetch(`https://fullstack-app-server.vercel.app/review/${id}` , {
         method : 'PATCH',
@@ -47,7 +47,8 @@ const Update = () => {
           rows="3"
         ></textarea>{" "}
         <br />
-        <button type="submit">Update</button>
+        <button className="bg-blue-400 text-2xl font-bold p-1 rounded-md text-white" type="submit">Update</button>
+        <Link to ="/review"><button className="ml-8 bg-green-400 text-2xl font-bold p-1 rounded-md text-white">Go back review</button></Link>
       </form>
       </div>
     </div>

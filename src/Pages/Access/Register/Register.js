@@ -2,9 +2,12 @@ import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthContext";
+import useTitle from "../../../hook/useTitle";
 
 const Register = () => {
   const[error, setError] = useState('')
+  useTitle('Register')
+
 
     const { createUser , updateUserProfile , verifyEmail} = useContext(AuthContext);
 
@@ -15,7 +18,7 @@ const Register = () => {
         const photoUrl =form.photoUrl.value;
         const email= form.email.value;
         const password = form.password.value;
-        console.log(name,photoUrl,email,password);
+        //console.log(name,photoUrl,email,password);
 
         createUser(
             email,
@@ -23,7 +26,7 @@ const Register = () => {
         )
         .then(result=>{
             const user = result.user;
-            console.log(user);
+            //console.log(user);
             setError('');
             form.reset()
             handleUpdateUserProfile(name, photoUrl);
@@ -34,7 +37,7 @@ const Register = () => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
+            //console.log(errorCode, errorMessage);
           });
     }
 

@@ -2,12 +2,14 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthContext";
+import useTitle from "../../../hook/useTitle";
 
 const Login = () => {
 
     const {signIn, setLoading , user , googleProviderLogin , gitProviderLogin} = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate()
+    useTitle('signIn')
 
     const from = location.state?.from?.pathname || '/';
 
@@ -16,12 +18,11 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(email, password);
 
     signIn(email,password)
     .then(result=>{
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         form.reset();
        if(user.uid){
         navigate(from, {replace: true});
@@ -34,7 +35,7 @@ const Login = () => {
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        //console.log(errorCode, errorMessage);
         setLoading(false)
       });
   };
