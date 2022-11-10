@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const Product = () => {
 
@@ -27,7 +28,10 @@ const Product = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
+          if(data.acknowledged){
+            toast.success('Service added successfully');
+                event.target.reset();
+          }
         })
 
 
