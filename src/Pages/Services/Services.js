@@ -4,15 +4,27 @@ import ServiceItem from "./ServiceItem";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:5000/services")
       .then((response) => response.json())
-      .then((data) => setServices(data));
+      .then((data) => {
+        setServices(data)
+        setLoading(false);
+
+      });
   }, []);
 
   return (
     <div>
+      {
+        loading ? 
+        <div className='absolute top-[50vh] left-[50vw] translate-x-[-50%] '><progress className="progress progress-error w-56"  max="100"></progress></div>
+        :
+        null
+      }
+       
       <div
         className="hero"
         style={{ backgroundImage: `url(${image})`, height: 600 }}

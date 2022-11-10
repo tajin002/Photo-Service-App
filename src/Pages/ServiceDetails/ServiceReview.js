@@ -2,10 +2,11 @@ import React from "react";
 
 const ServiceReview = ({ review }) => {
   const { img, userName, name, post } = review;
-  console.log(review);
   return (
     <div>
-      <div class="max-w-2xl px-8 py-4 shadow-md bg-indigo-500 ml-36 mb-4">
+      {
+        review.post ?   
+        <div class="max-w-2xl px-8 py-4 shadow-md bg-indigo-500 ml-36 mb-4">
         <div class="flex items-center justify-between">
           <span class="text-sm font-light text-gray-400">
             Mar 10, 2019
@@ -36,6 +37,9 @@ const ServiceReview = ({ review }) => {
           </div>
         </div>
       </div>
+      :
+      <p>no review added</p>
+      }
     </div>
   );
 };

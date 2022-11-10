@@ -1,12 +1,15 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthContext";
 
 const Login = () => {
-
+    
     const {signIn , user , googleProviderLogin , gitProviderLogin} = useContext(AuthContext);
-    console.log(user);
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const form = location.state?.form?.pathname || '/';
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,6 +42,7 @@ const Login = () => {
   }
   return (
     <div className="relative">
+      
       <img
         src="https://t3.ftcdn.net/jpg/03/99/24/82/360_F_399248286_Ogm0T8CFeauN4Hdn42FqWfsCE02dJBbX.jpg"
         className="absolute inset-0 object-cover w-full h-full"

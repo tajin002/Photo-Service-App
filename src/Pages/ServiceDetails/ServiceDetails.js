@@ -28,7 +28,7 @@ const ServiceDetails = () => {
     };
 
     // here we post function update
-    fetch("http://localhost:5000/review", {
+    fetch("https://fullstack-app-server.vercel.app/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

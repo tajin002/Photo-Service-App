@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 const Allreview = ({ review , setTogle}) => {
 
   // const {user} = useContext(AuthContext);
   const [displayRev, setDisplayRev] = useState([]);
-  console.log(displayRev);
+
   const {_id, img, name, userName, post } = review;
 
 
-  
+
   const handleDelete = id => {
     const toast = window.confirm('are you sure to delete')
 
@@ -28,8 +29,18 @@ const Allreview = ({ review , setTogle}) => {
   }
 
 
+  
+
+
   return (
     <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+        {
+          review ?
+          null
+          :
+          <div><h1 className="text-6xl text-red-500 m-auto">No review found</h1></div> 
+        }
+
       <div className="flex justify-between p-4">
         <div className="flex space-x-4">
           <div>
@@ -49,7 +60,7 @@ const Allreview = ({ review , setTogle}) => {
         <p>{post}</p>
       </div>
       <div className="flex justify-between">
-        <p className="mt-2">Edit</p>
+        <Link to={`/update/${_id}`}><p className="mt-2 btn">Edit</p></Link>
         <p onClick={()=>handleDelete(_id)} className="mt-2 text-red-500 btn">Delete</p>
       </div>
     </div>
