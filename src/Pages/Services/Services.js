@@ -49,7 +49,7 @@ const Services = () => {
         <p className="text-center text-5xl font-bold font-serif mt-5 mb-5">We Provide Best PhotoGraphy <br /> and explore to you different Angel</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-5 px-80">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-32 pt-5 px-80">
         {/* maping services */}
         {services.map((service) => (
           <ServiceItem key={service._id} service={service} />

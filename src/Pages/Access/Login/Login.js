@@ -7,8 +7,8 @@ import useTitle from "../../../hook/useTitle";
 const Login = () => {
 
     const {signIn, setLoading , user , googleProviderLogin , gitProviderLogin} = useContext(AuthContext);
-    const location = useLocation()
     const navigate = useNavigate()
+    const location = useLocation()
     useTitle('signIn')
 
     const from = location.state?.from?.pathname || '/';
@@ -24,7 +24,7 @@ const Login = () => {
         const user = result.user;
         // console.log(user);
         form.reset();
-       if(user.uid){
+       if(user?.email){
         navigate(from, {replace: true});
        }
        else{

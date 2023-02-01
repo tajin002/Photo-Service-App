@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <div>
-      <header className="p-4 bg-gray-800 text-gray-100 fixed w-full z-20">
+      <header className="p-4 bg-gray-800 text-gray-100 w-full">
         <div className="container flex justify-between h-16 mx-auto">
           <Link
             to="/"

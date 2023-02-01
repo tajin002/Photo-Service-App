@@ -12,6 +12,7 @@ const ServiceITem = ({ item }) => {
         <PhotoProvider>
           <PhotoView src={img}>
             <img src={img} className="h-62" alt="images of service" />
+
           </PhotoView>
         </PhotoProvider>
       </figure>

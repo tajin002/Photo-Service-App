@@ -9,13 +9,13 @@ const Product = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-         const image = form.image.value;
+         const img = form.img.value;
          const detail = form.detail.value;
         // console.log(name,image,detail);
 
         const product = {
             name: name,
-            image: image,
+            img: img,
             detail: detail
 
         }
@@ -74,8 +74,8 @@ const Product = () => {
             ImageURL
           </label>
           <input
-            name="image"
-            id="image"
+            name="img"
+            id="img"
             type="text"
             className="w-full p-3 rounded bg-gray-800"
           />
